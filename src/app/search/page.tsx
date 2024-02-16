@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
 import { useAppContext } from '@/contexts';
+import { useSearchParams } from 'next/navigation';
 import {
   Pagination,
   PaginationContent,
@@ -33,9 +34,12 @@ interface Serie {
 export default function Home() {
   const [series, setSeries] = useState<Serie[]>([]);
   const [pages, setPages] = useState<number[]>([]);
+  const [notFound, setNotFound] = useState<boolean>(false);
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   const { pageParam, currentPage, setCurrentPage } = useAppContext();
-  const url = `https://api.themoviedb.org/3/tv/${pageParam}?api_key=${apiKey}&language=pt-BR&page=${currentPage}`;
+  const searchParams = useSearchParams();
+  const search = searchParams.get('search');
+  const url = `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&language=pt-BR&query=${search}&page=${currentPage}`;
   const posterBaseUrl = 'https://image.tmdb.org/t/p/w200/';
 
   useEffect(() => {
@@ -46,14 +50,20 @@ export default function Home() {
   async function load() {
     try {
       const response = await axios.get(url);
+      if (response.data.results.length < 1) {
+        setNotFound(true);
+        return;
+      }
       setSeries(response.data.results);
       const totalPages = Array.from(
         { length: response.data.total_pages },
         (_, index) => index + 1
       );
       setPages(totalPages);
+      setNotFound(false);
     } catch (error) {
       console.log('Erro ao carregar informações', error);
+      setNotFound(true);
     }
   }
 
@@ -103,17 +113,21 @@ export default function Home() {
             />
           );
         })}
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem className="cursor-pointer">
-            <PaginationPrevious onClick={handlePrevPage} />
-          </PaginationItem>
+      {notFound ? (
+        <h1>Não encontramos resultados para a sua pesquisa.</h1>
+      ) : (
+        <Pagination>
+          <PaginationContent>
+            <PaginationItem className="cursor-pointer">
+              <PaginationPrevious onClick={handlePrevPage} />
+            </PaginationItem>
 
-          <PaginationItem className="cursor-pointer">
-            <PaginationNext onClick={handleNextPage} />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
+            <PaginationItem className="cursor-pointer">
+              <PaginationNext onClick={handleNextPage} />
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
+      )}
     </main>
   );
 }

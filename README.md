@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">RSéries</h1>
 
-## Getting Started
+<p align="center">
+Este é um projeto aberto. Confira a seguir informações relevantes sobre ele.<br/>
+</p>
 
-First, run the development server:
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-bibliotecas">Bibliotecas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-instruções">Instruções</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<p align="center">
+  <img alt="imagem do projeto" src=".github/preview.png" width="100%">
+</p>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🚀 Tecnologias
 
-## Learn More
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-To learn more about Next.js, take a look at the following resources:
+- React.js
+- Typescript
+- Next.js 14
+- Tailwind css
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📚 Bibliotecas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Axios
+- Shadcn
 
-## Deploy on Vercel
+## 💻 Projeto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Essa é uma aplicação **React** em **Typescript** que traz diversas informações sobre séries de TV. O nome RSéries remete à sigla do meu nome: Rodrigo Serrasqueiro - R.S. Para acessar essas informações utilizei a API do [tmdb.org](https://www.themoviedb.org/). Nesse projeto usei Next na versão 14 com app router, Tailwind css e a biblioteca Shadcn que são as mais novas tecnologias do front-end. Totalmente responsiva, com design moderno e interativo, essa aplicação ainda pode melhorar muito. A ideia é construir uma API própria para possibilitar cadastro de usuários e também possibilitar que usuários postem comentários nas séries.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Acesse o projeto finalizado, online](https://rodrigoserrasqueiro.github.io/rseries)
+
+## 📝 Instruções
+
+### Pré-requisitos
+
+Antes de começar, certifique-se de que possui as seguintes ferramentas instaladas em sua máquina:
+
+1. Node.js
+1. Git
+
+### Clonando o repositório
+
+Abra o terminal do seu sistema operacional e navegue até o diretório onde deseja clonar o repositório.
+
+Digite o seguinte comando para clonar o repositório:
+
+`git clone https://github.com/RodrigoSerrasqueiro/RSeries.git`
+
+### Instalando as dependências
+
+Navegue até a pasta do projeto no terminal.
+
+Digite o seguinte comando para instalar as dependências do projeto:
+
+`npm install`
+
+### Executando o projeto
+
+Na pasta do projeto, digite o seguinte comando para iniciar o servidor de desenvolvimento:
+
+`npm start`
+
+Abra o navegador e digite o seguinte endereço:
+
+`http://localhost:3000`
+
+Certifique-se de que a porta 3000 esteja livre em sua máquina.
+
+## Conclusão:
+
+Pronto! Agora você pode clonar e executar o projeto em sua máquina. Caso tenha alguma dúvida ou problema, sinta-se à vontade para abrir uma issue em nosso repositório.
+
+## :memo: Licença
+
+Esse projeto está sob a licença MIT.
+
+---
+
+Desenvolvido por: Rodrigo Serrasqueiro [Dê uma olhada no meu portfólio!](https://rodrigoserrasqueiro.github.io/Portfolio)
