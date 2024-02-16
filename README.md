@@ -40,7 +40,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 Essa é uma aplicação **React** em **Typescript** que traz diversas informações sobre séries de TV. O nome RSéries remete à sigla do meu nome: Rodrigo Serrasqueiro - R.S. Para acessar essas informações utilizei a API do [tmdb.org](https://www.themoviedb.org/). Nesse projeto usei Next na versão 14 com app router, Tailwind css e a biblioteca Shadcn que são as mais novas tecnologias do front-end. Totalmente responsiva, com design moderno e interativo, essa aplicação ainda pode melhorar muito. A ideia é construir uma API própria para possibilitar cadastro de usuários e também possibilitar que usuários postem comentários nas séries.
 
-- [Acesse o projeto finalizado, online](https://rodrigoserrasqueiro.github.io/rseries)
+- [Acesse o projeto finalizado, online](https://rseries.vercel.app)
 
 ## 📝 Instruções
 
