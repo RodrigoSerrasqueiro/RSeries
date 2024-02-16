@@ -6,7 +6,6 @@ import axios from 'axios';
 import { format } from 'date-fns';
 import { useAppContext } from '@/contexts';
 import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
 import {
   Pagination,
   PaginationContent,
@@ -90,47 +89,45 @@ export default function Home() {
   };
 
   return (
-    <Suspense>
-      <main className="flex flex-wrap justify-center w-full max-w-screen-2xl pt-3 pb-8 px-12 gap-6">
-        {series &&
-          series.length > 0 &&
-          series.map((serie) => {
-            return (
-              <Card
-                title={serie.name}
-                voteAverage={serie.vote_average
-                  .toLocaleString('pt-BR', {
-                    maximumFractionDigits: 1,
-                    minimumFractionDigits: 1
-                  })
-                  .replace(',', '.')}
-                release={getDate(serie.first_air_date)}
-                poster={
-                  serie.poster_path
-                    ? `${posterBaseUrl}${serie.poster_path}`
-                    : 'https://hisend.s3.sa-east-1.amazonaws.com/images/not-found-poster.jpg'
-                }
-                id={serie.id}
-                key={serie.id}
-              />
-            );
-          })}
-        {notFound ? (
-          <h1>Não encontramos resultados para a sua pesquisa.</h1>
-        ) : (
-          <Pagination>
-            <PaginationContent>
-              <PaginationItem className="cursor-pointer">
-                <PaginationPrevious onClick={handlePrevPage} />
-              </PaginationItem>
+    <main className="flex flex-wrap justify-center w-full max-w-screen-2xl pt-3 pb-8 px-12 gap-6">
+      {series &&
+        series.length > 0 &&
+        series.map((serie) => {
+          return (
+            <Card
+              title={serie.name}
+              voteAverage={serie.vote_average
+                .toLocaleString('pt-BR', {
+                  maximumFractionDigits: 1,
+                  minimumFractionDigits: 1
+                })
+                .replace(',', '.')}
+              release={getDate(serie.first_air_date)}
+              poster={
+                serie.poster_path
+                  ? `${posterBaseUrl}${serie.poster_path}`
+                  : 'https://hisend.s3.sa-east-1.amazonaws.com/images/not-found-poster.jpg'
+              }
+              id={serie.id}
+              key={serie.id}
+            />
+          );
+        })}
+      {notFound ? (
+        <h1>Não encontramos resultados para a sua pesquisa.</h1>
+      ) : (
+        <Pagination>
+          <PaginationContent>
+            <PaginationItem className="cursor-pointer">
+              <PaginationPrevious onClick={handlePrevPage} />
+            </PaginationItem>
 
-              <PaginationItem className="cursor-pointer">
-                <PaginationNext onClick={handleNextPage} />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
-        )}
-      </main>
-    </Suspense>
+            <PaginationItem className="cursor-pointer">
+              <PaginationNext onClick={handleNextPage} />
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
+      )}
+    </main>
   );
 }
