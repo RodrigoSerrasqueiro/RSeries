@@ -57,7 +57,7 @@ Abra o terminal do seu sistema operacional e navegue até o diretório onde dese
 
 Digite o seguinte comando para clonar o repositório:
 
-`git clone https://github.com/RodrigoSerrasqueiro/RSeries.git`
+`git clone https://github.com/RodrigoSerrasqueiro/Rseries.git`
 
 ### Instalando as dependências
 
